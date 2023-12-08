@@ -1,6 +1,7 @@
 package com.example.back.service;
 
 
+import com.example.back.controller.PostController;
 import com.example.back.dao.PostRepository;
 import com.example.back.exception.ChampNullException;
 import com.example.back.exception.ChampVideException;
@@ -46,5 +47,14 @@ public class PostService {
     public void deletePost(Long id) throws PostNonExistantException {
         Post post = this.getPost(id);
         postRepository.delete(post);
+    }
+
+    public Post updatePost(PostController.PostDTO newPost, Long id) throws PostNonExistantException {
+        Post postToUpdate = this.getPost(id);
+        postToUpdate.setAuteur(newPost.autheur());
+        postToUpdate.setDescription(newPost.description());
+
+        Post updatedPost = postRepository.save(postToUpdate);
+        return updatedPost;
     }
 }

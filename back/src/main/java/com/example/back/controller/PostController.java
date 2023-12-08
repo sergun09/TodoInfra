@@ -62,6 +62,20 @@ public class PostController {
         return ResponseEntity.created(location).body(post);
     }
 
+    @PutMapping("/posts/{id}")
+    public ResponseEntity<Post> updatePost(@RequestBody PostDTO oldPost, @PathVariable Long id)
+    {
+
+        Post updatedPost = null;
+        try {
+            updatedPost = this.postService.updatePost(oldPost, id);
+        } catch (PostNonExistantException e) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(updatedPost);
+    }
+
     @DeleteMapping("/posts/{id}")
     public ResponseEntity<Object> deletePost(@PathVariable Long id)
     {
