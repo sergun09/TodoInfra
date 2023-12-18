@@ -5,15 +5,15 @@ import com.example.back.exception.ChampVideException;
 import com.example.back.exception.PostNonExistantException;
 import com.example.back.modele.Post;
 import com.example.back.service.PostService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 import java.util.Collection;
-import java.util.Optional;
 
+
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api")
 public class PostController {
@@ -43,7 +43,7 @@ public class PostController {
     }
 
 
-    public record PostDTO(String description, String autheur){}
+    public record PostDTO(String description, String auteur){}
 
     @PostMapping("/posts")
     public ResponseEntity<Post> addPost(@RequestBody PostDTO postDTO, UriComponentsBuilder base)
@@ -51,7 +51,7 @@ public class PostController {
         Post post;
 
         try {
-            post = postService.addPost(postDTO.description, postDTO.autheur);
+            post = postService.addPost(postDTO.description, postDTO.auteur);
         } catch (ChampNullException | ChampVideException e) {
             return ResponseEntity.badRequest().build();
         }

@@ -51,7 +51,7 @@ public class PostService {
 
     public Post updatePost(PostController.PostDTO newPost, Long id) throws PostNonExistantException {
         Post postToUpdate = this.getPost(id);
-        postToUpdate.setAuteur(newPost.autheur());
+        postToUpdate.setAuteur(newPost.auteur());
         postToUpdate.setDescription(newPost.description());
 
         Post updatedPost = postRepository.save(postToUpdate);

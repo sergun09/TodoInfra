@@ -1,0 +1,30 @@
+.App{
+  padding: 20px;
+  background-image: url("https://previews.123rf.com/images/andreahast/andreahast1302/andreahast130200046/18022704-texture-de-fond-en-liÃ¨ge.jpg") ;
+  background-size: auto;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 100vh;
+}
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.nomApp{
+  text-align: center;
+  color: white;
+  text-shadow: 3px 3px 20px black;
+}
+
+.createNote{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 5vh;
+  right: 5%;
+}
+
+.createNote>.button{
+  align-self: end;
+}
