@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+
+    database:
+      build: ./database
+      container_name: database
+      hostname: database
+      restart: always
+      ports:
+        - "3306:3306"
+      environment:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: todoDB
+      networks:
+        - spring_net
+
+    backend:
+      build: ./back
+      container_name: backend
+      restart: always
+      depends_on:
+        - database
+      ports:
+        - "8080:8080"
+      networks:
+        - spring_net
+
+
+networks:
+  spring_net:

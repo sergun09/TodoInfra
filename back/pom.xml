@@ -10,10 +10,11 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>back</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>back</name>
 	<description>back</description>
 	<properties>
+		<start-class>com.example.back.BackApplication</start-class>
 		<java.version>18</java.version>
 	</properties>
 	<dependencies>
@@ -45,12 +46,11 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<executable>true</executable>
-				</configuration>
 			</plugin>
 
 		</plugins>
 	</build>
+
+	<packaging>jar</packaging>
 
 </project>
