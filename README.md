@@ -1,8 +1,7 @@
 # ProjetInfra
 
-cd front
-npm i
+Faire à la racine du projet:
 
-bdd :
-docker run --name c1 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=todoDB -d mysql:8.1
+docker compose up 
 
+Pour accéder au projet utiliser l'URL localhost:3000
