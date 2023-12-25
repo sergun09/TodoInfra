@@ -1,8 +1,10 @@
 .App{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
   background-image: url("https://previews.123rf.com/images/andreahast/andreahast1302/andreahast130200046/18022704-texture-de-fond-en-liÃ¨ge.jpg") ;
   background-size: auto;
-  flex-wrap: wrap;
   width: 100%;
   min-height: 100vh;
 }
@@ -10,6 +12,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  width: 90%;
 }
 .nomApp{
   text-align: center;
@@ -25,6 +28,14 @@
   right: 5%;
 }
 
-.createNote>.button{
+.createNote .add-note-button{
   align-self: end;
+}
+.add-note-button{
+  font-size: xx-large;
+  border-radius: 25px;
+  background: grey;
+  color: white;
+  width: 50px;
+  height: 50px;
 }
