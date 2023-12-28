@@ -15,7 +15,7 @@ import java.util.Collection;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/api")
+@RequestMapping(value = "/api/v1", headers = "X-API-Version=1")
 public class PostController {
 
     PostService postService;

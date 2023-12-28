@@ -1,5 +1,6 @@
 package com.example.back;
 
+import com.example.back.dao.PostRepository;
 import com.example.back.exception.ChampNullException;
 import com.example.back.exception.ChampVideException;
 import com.example.back.modele.Post;
@@ -21,22 +22,25 @@ public class BackApplication {
 	}
 
 	@Bean
-	public CommandLineRunner seedData(PostService postService)
+	public CommandLineRunner seedData(PostService postService, PostRepository postRepository)
 	{
 		return (args ->
 		{
-			try {
-				postService.addPost("Description 1", "Autheur 1");
-				postService.addPost("Description 2", "Autheur Jean-Michel");
-				postService.addPost("Description 3", "Autheur Patrick");
+			if (postRepository.count() == 0)
+			{
+				try {
+					postService.addPost("Description 1", "Autheur 1");
+					postService.addPost("Description 2", "Autheur Jean-Michel");
+					postService.addPost("Description 3", "Autheur Patrick");
 
-				postService.getAllPosts().forEach(System.out::println);
+					postService.getAllPosts().forEach(System.out::println);
 
 
-			} catch (ChampNullException | ChampVideException e) {
-				throw new RuntimeException(e);
+				} catch (ChampNullException | ChampVideException e) {
+					throw new RuntimeException(e);
+				}
+
 			}
-
         });
 	}
 

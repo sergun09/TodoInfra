@@ -2,10 +2,7 @@ package com.example.back.modele;
 
 
 import com.example.back.utils.Couleur;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Random;
 
@@ -16,6 +13,7 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(columnDefinition = "TEXT", length = 800)
     private String description;
 
     private String auteur;

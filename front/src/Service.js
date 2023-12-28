@@ -1,8 +1,13 @@
 
 function Service() {
-    const apiURI = "http://localhost:8080/api"
+    const apiURI = "http://localhost:8080/api/v1"
     const retrieveData = () => {
-        return fetch(apiURI + "/posts", {method: "GET"})
+        return fetch(apiURI + "/posts", {
+            method: "GET",
+            headers : {
+                "X-API-Version" : "1"
+            }
+        })
             .then(res => res.json());
 
     }
@@ -13,7 +18,8 @@ function Service() {
             body: JSON.stringify(data),
             headers : {
                 "Content-Type": "application/json",
-                "Accept": "application/json"
+                "Accept": "application/json",
+                "X-API-Version" : "1"
             }
         }).then(res => res.json())
     }
@@ -23,7 +29,8 @@ function Service() {
             body: JSON.stringify(data),
             headers : {
                 "Content-Type": "application/json",
-                "Accept": "application/json"
+                "Accept": "application/json",
+                "X-API-Version" : "1"
             }
         }).then(res => res.json())
     }
@@ -33,6 +40,7 @@ function Service() {
             method: "DELETE",
             headers : {
                 "Content-Type": "application/json",
+                "X-API-Version" : "1"
             }
         })
     }
