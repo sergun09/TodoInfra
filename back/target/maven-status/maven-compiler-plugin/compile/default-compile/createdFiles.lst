@@ -1,0 +1,10 @@
+com\example\back\exception\PostNonExistantException.class
+com\example\back\dao\PostRepository.class
+com\example\back\BackApplication.class
+com\example\back\exception\ChampNullException.class
+com\example\back\controller\PostController$PostDTO.class
+com\example\back\controller\PostController.class
+com\example\back\service\PostService.class
+com\example\back\exception\ChampVideException.class
+com\example\back\utils\Couleur.class
+com\example\back\modele\Post.class
