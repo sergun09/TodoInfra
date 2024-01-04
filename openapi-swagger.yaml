@@ -1,0 +1,151 @@
+openapi: "3.0.3"
+info:
+  title: "back API"
+  description: "back API"
+  version: "1.0.0"
+servers:
+  - url: "https://backendtodosite.azurewebsites.net"
+paths:
+  /api/v1/posts:
+    get:
+      summary: "GET api/v1/posts"
+      operationId: "getPosts"
+      parameters:
+        - name: "X-API-Version"
+          in: "header"
+          required: true
+          schema:
+            type: "string"
+            default: "1"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Post"
+    post:
+      summary: "POST api/v1/posts"
+      operationId: "addPost"
+      parameters:
+        - name: "X-API-Version"
+          in: "header"
+          required: true
+          schema:
+            type: "string"
+            default: "1"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PostDTO"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Post"
+  /api/v1/posts/{id}:
+    get:
+      summary: "GET api/v1/posts/{id}"
+      operationId: "getPost"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+        - name: "X-API-Version"
+          in: "header"
+          required: true
+          schema:
+            type: "string"
+            default: "1"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Post"
+    put:
+      summary: "PUT api/v1/posts/{id}"
+      operationId: "updatePost"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+        - name: "X-API-Version"
+          in: "header"
+          required: false
+          schema:
+            type: "string"
+            default: "1"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PostDTO"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Post"
+    delete:
+      summary: "DELETE api/v1/posts/{id}"
+      operationId: "deletePost"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+        - name: "X-API-Version"
+          in: "header"
+          required: false
+          schema:
+            type: "string"
+            default: "1"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Object"
+components:
+  schemas:
+    Post:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        description:
+          type: "string"
+        auteur:
+          type: "string"
+        couleur:
+          type: "string"
+    PostDTO:
+      type: "object"
+      properties:
+        description:
+          type: "string"
+        auteur:
+          type: "string"
+    Object:
+      type: "object"
+      properties: { }
