@@ -1,6 +1,6 @@
 
 function Service() {
-    const apiURI = "http://localhost:8080/api/v1"
+    const apiURI = "https://backendtodosite.azurewebsites.net/api/v1"
     const retrieveData = () => {
         return fetch(apiURI + "/posts", {
             method: "GET",

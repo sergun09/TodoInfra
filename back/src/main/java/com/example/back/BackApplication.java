@@ -29,9 +29,9 @@ public class BackApplication {
 			if (postRepository.count() == 0)
 			{
 				try {
-					postService.addPost("Description 1", "Autheur 1");
-					postService.addPost("Description 2", "Autheur Jean-Michel");
-					postService.addPost("Description 3", "Autheur Patrick");
+					postService.addPost("Rajout fonctionnalité paiement via Paypal", "Alex");
+					postService.addPost("Réparer le bug de réservation", "Jean-Michel");
+					postService.addPost("Rendez-vous avec le client", "Patrick");
 
 					postService.getAllPosts().forEach(System.out::println);
 
@@ -41,7 +41,7 @@ public class BackApplication {
 				}
 
 			}
-        });
+		});
 	}
 
 }
