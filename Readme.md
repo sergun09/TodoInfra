@@ -25,7 +25,7 @@ docker compose up -d
 
 ## Déploiement en ligne :
 
-Lien frontend : https://todolistcloud.a zurewebsites.net/
+Lien frontend : https://todolistcloud.azurewebsites.net/
 
 Lien backend : https://backendtodosite.azurewebsites.net/
 
